@@ -134,3 +134,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Add the Django REST API endpoint suffix
 API_ENDPOINT_SUFFIX = "/api/v1/"
+
+# Add the Django REST API endpoint base URL
+API_BASE_URL = f"http://localhost:8000{API_ENDPOINT_SUFFIX}"
