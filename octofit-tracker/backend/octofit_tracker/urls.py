@@ -30,7 +30,7 @@ router.register(r'workouts', WorkoutViewSet)
 
 urlpatterns = [
     # Include your app's URLs
-    path(settings.API_ENDPOINT_SUFFIX, include('octofit_tracker.urls')),
+    path('api/v1', include('octofit_tracker.urls')),
 ]
 #urlpatterns = [
 #    path("admin/", admin.site.urls),

@@ -137,3 +137,17 @@ API_ENDPOINT_SUFFIX = "/api/v1/"
 
 # Add the Django REST API endpoint base URL
 API_BASE_URL = f"http://localhost:8000{API_ENDPOINT_SUFFIX}"
+
+# Ensure API endpoint suffix is included in the REST framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'BASE_API_ENDPOINT': f"http://localhost:8000{API_ENDPOINT_SUFFIX}",
+}
