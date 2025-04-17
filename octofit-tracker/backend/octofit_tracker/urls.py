@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import api_root, UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet, WorkoutViewSet
+#from django.urls import path, include
+from django.conf import settings
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -27,7 +29,11 @@ router.register(r'leaderboard', LeaderboardViewSet)
 router.register(r'workouts', WorkoutViewSet)
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('', api_root, name='api-root'),
-    path('api/', include(router.urls)),
+    # Include your app's URLs
+    path(settings.API_ENDPOINT_SUFFIX, include('octofit_tracker.urls')),
 ]
+#urlpatterns = [
+#    path("admin/", admin.site.urls),
+#    path('', api_root, name='api-root'),
+#    path('api/', include(router.urls)),
+#]
