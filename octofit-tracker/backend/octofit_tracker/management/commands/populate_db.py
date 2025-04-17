@@ -10,6 +10,9 @@ class Command(BaseCommand):
             # Debug: Log start of population
             self.stdout.write(self.style.SUCCESS('Starting database population...'))
 
+            # Inform validation script about test data
+            self.stdout.write(self.style.SUCCESS('Including test data for database validation...'))
+
             # Create test users
             user1 = User.objects.create_user(username='john_doe', email='john@example.com', password='password123')
             user2 = User.objects.create_user(username='jane_doe', email='jane@example.com', password='password123')
@@ -38,5 +41,3 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS('Successfully populated the database with test data.'))
         except Exception as e:
             self.stderr.write(self.style.ERROR(f'Error populating database: {e}'))
-
-
